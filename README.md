@@ -12,10 +12,11 @@ Features
 	•	Buy/Sell Recommendations: Evaluates predictions to suggest investment actions.
 	•	Visualization: Plots actual vs. predicted stock prices for insights.
 
-File Structure
+Here’s the correct Markdown format for the file structure that will display cleanly:
+
+## File Structure
 
 predictive_model/
-│
 ├── data_preprocessing.py   # Preprocesses raw stock data
 ├── model_training.py       # Builds and trains the LSTM model
 ├── prediction.py           # Generates predictions and recommendations
@@ -23,6 +24,10 @@ predictive_model/
 ├── file_ui.py              # GUI for managing data files
 ├── main.py                 # Orchestrates the full pipeline
 └── README.md               # Documentation for the project
+
+
+
+Copy and paste this into your README file, and it should display as intended in any Markdown viewer. Let me know if further tweaks are needed!
 
 Requirements
 
