@@ -1,3 +1,46 @@
+## How to Run Locally
+
+Follow these steps to set up and run the application locally:
+
+### Prerequisites
+1. Install **Python 3.8+** on your machine.
+2. Ensure you have `pip` installed.
+
+### Instructions
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/your_username/your_repository_name.git
+    cd your_repository_name
+    ```
+
+2. **Create a Virtual Environment** (optional but recommended):
+    ```bash
+    python -m venv venv
+    source venv/bin/activate   # For macOS/Linux
+    venv\Scripts\activate      # For Windows
+    ```
+
+3. **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Run the Application**:
+    ```bash
+    python app.py
+    ```
+
+5. **Access the Application**:
+    - Open your web browser and go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
+
+6. **Upload a File**:
+    - On the home page, upload a text or CSV file to generate predictions and recommendations.
+
+### Notes
+- The uploaded files are saved in the `uploads` directory.
+- Make sure the uploaded file matches the expected format for the preprocessing logic to work correctly.
+- Debug mode is enabled for local development. Disable it in production.
+
 Stock Price Prediction Program
 
 Overview
