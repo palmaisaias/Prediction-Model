@@ -1,8 +1,12 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import os
+from src.data_preprocessing import load_and_preprocess_data, split_data
 
 def add_file():
+    """
+    Opens a file dialog to add .txt files and displays them in the listbox.
+    """
     file_path = filedialog.askopenfilename(
         title="Select a Data File",
         filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")]
@@ -13,6 +17,9 @@ def add_file():
         messagebox.showinfo("File Added", f"File {os.path.basename(file_path)} added successfully!")
 
 def remove_selected():
+    """
+    Removes the selected file from the listbox.
+    """
     selected = file_listbox.curselection()
     if selected:
         file_listbox.delete(selected)
@@ -20,17 +27,35 @@ def remove_selected():
         messagebox.showwarning("No Selection", "Please select a file to remove.")
 
 def process_files():
+    """
+    Processes all files added to the listbox using the data preprocessing logic.
+    """
     files = file_listbox.get(0, tk.END)
     if not files:
         messagebox.showerror("No Files", "No files to process. Please add files first.")
         return
 
-    # Pass files to your main predictive model program
     for file_path in files:
-        print(f"Processing file: {file_path}")
-        # Here you can add the logic to use `file_path` in your main program
+        try:
+            # Step 1: Load and preprocess the data
+            scaled_data, scaler = load_and_preprocess_data(file_path)
 
-    messagebox.showinfo("Processing Complete", "Files processed successfully!")
+            # Step 2: Split the data into sequences
+            X, y = split_data(scaled_data)
+
+            # Example output: Log the number of samples processed
+            print(f"Processed {file_path}:")
+            print(f"Number of samples (X): {len(X)}")
+            print(f"Number of targets (y): {len(y)}")
+
+            # Additional processing logic can be added here
+            # e.g., training a model, making predictions, etc.
+
+        except Exception as e:
+            messagebox.showerror("Processing Error", f"Error processing {file_path}: {e}")
+            return
+
+    messagebox.showinfo("Processing Complete", "All files processed successfully!")
 
 # Initialize the Tkinter window
 root = tk.Tk()

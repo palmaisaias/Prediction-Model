@@ -6,7 +6,7 @@ from src.utils import plot_predictions, inverse_scale_data
 # File path
 # Some files are so evident of loss that it takes the training model no more than 26 epocs 
 # to decipher that the stock will take a loss
-file_path = "data/mara.us.txt"
+file_path = "/Users/isaiaspalma/Downloads/data/daily/us/nasdaq stocks/2/illr.us.txt"
 
 # Step 1: Load and preprocess data
 scaled_data, scaler = load_and_preprocess_data(file_path)
